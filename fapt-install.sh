@@ -9,7 +9,7 @@ SCRIPT_DIR="$( cd "$( dirname "$BASH_SOURCE" )" && pwd )"
 mkdir -p $FAPT_ROOT/bin
 mkdir -p $FAPT_ROOT/tmp
 
-curl -o $FAPT_ROOT/tmp/bootstrap_local_bash_env.sh https://github.com/gabrielgrant/bootstrap/raw/master/bootstrap_local_bash_env.sh
+curl -L -o $FAPT_ROOT/tmp/bootstrap_local_bash_env.sh https://github.com/gabrielgrant/bootstrap/raw/master/bootstrap_local_bash_env.sh
 bash $FAPT_ROOT/tmp/bootstrap_local_bash_env.sh
 
 FAKECHROOT_EXE=fakechroot
@@ -18,7 +18,7 @@ if ! type -P fakechroot &>/dev/null; then
     echo "Installing fakechroot..."
 
     cd $FAPT_ROOT/tmp
-    curl -O http://cloud.github.com/downloads/fakechroot/fakechroot/fakechroot-2.14.tar.gz
+    curl -L -O http://cloud.github.com/downloads/fakechroot/fakechroot/fakechroot-2.14.tar.gz
     tar -xzf fakechroot-2.14.tar.gz
     cd fakechroot-2.14
     ./configure --prefix=$FAPT_ROOT
